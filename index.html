@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slayer Simulator v1</title>
+    <link rel="stylesheet" type = "text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <h1>
+    Blackbriarmead's Hypixel Skyblock Slayer Quest Simulator
+  </h1>
+  <body style="background-color:#202020">
+    <div id="killsPerClick" class='parent'>
+      <div class='child inline-block-child'>
+        <p>Kills per click: </p>
+      </div>
+      <div class='child inline-block-child'>
+        <input type="text" id="userInput" value="1"/>
+      </div>
+    </div>
+    <div id="magicFind" class='parent'>
+      <div class='child inline-block-child'>
+        <p>Magic Find: </p>
+      </div>
+      <div class='child inline-block-child'>
+        <input type="text" id="userInput" value="0"/>
+      </div>
+      <div class='child inline-block-child'>
+        <p>%</p>
+      </div>
+    </div>
+    <div id="startQuest" class='parent'>
+      <div class='child inline-block-child'>
+        <button type="submit" id="submitZombie" onclick="app.ui.slayBoss('zombie')">Slay T4 Zombie</button>
+      </div>
+      <div class='child inline-block-child'>
+        <button type="submit" id="submitSpider" onclick="app.ui.slayBoss('spider')">Slay T4 Spider</button>
+      </div>
+      <div class='child inline-block-child'>
+        <button type="submit" id="submitWolf" onclick="app.ui.slayBoss('wolf')">Slay T4 Wolf</button>
+      </div>
+    </div>
+    <div id="lootSummary:">
+
+    </div>
+    <div id="recentDrops">
+      
+    </div>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="slayer.js"></script>
+</html>
