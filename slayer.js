@@ -12,13 +12,13 @@ app.data.dropMessage = function(boss,lootItem){
     veryRareColor="#AA00AA";
     secondaryDropName = "Enchanted Book";
   }
-  if(lootItem.rarity == "crazyRare") content = content + "<p style='color:#FF55FF' class='inline-block-child'><strong>Crazy Rare Drop!&#10240</strong></p>";
-  if(lootItem.rarity == "veryRare") content = content + "<p style='color:"+veryRareColor+"' class='inline-block-child'><strong>Very Rare Drop!&#10240</strong></p>";
-  if(lootItem.rarity == "rare") content = content + "<p style='color:rgb(72,212,212)' class='inline-block-child'><strong>Rare Drop!&#10240</strong></p>";
+  if(lootItem.rarity == "crazyRare") content = content + "<p style='color:#FF55FF' class='inline-block-child'>Crazy Rare Drop!&#10240</p>";
+  if(lootItem.rarity == "veryRare") content = content + "<p style='color:"+veryRareColor+"' class='inline-block-child'>Very Rare Drop!&#10240</p>";
+  if(lootItem.rarity == "rare") content = content + "<p style='color:rgb(72,212,212)' class='inline-block-child'>Rare Drop!&#10240</p>";
   content = content + "<p style='color:rgb(148,148,148)' class='inline-block-child'>(</p>"
   +"<p style='color:"+lootItem.color+"' class='inline-block-child'>"+secondaryDropName+"</p>"
   +"<p style='color:rgb(148,148,148)' class='inline-block-child'>)</p>";
-  if(boss.mf!=0) content = content + "<p style='color:rgb(72,212,212)' class='inline-block-child'>&#10240("+boss.mf+"% Magic Find!)</p>"
+  if(boss.mf!=0) content = content + "<p style='color:rgb(72,212,212)' class='inline-block-child'>&#10240(+"+boss.mf+"% Magic Find!)</p>"
   return(content);
 }
 app.data.lootItem = function(name, chance, value, dropType, rarity, color){
@@ -32,16 +32,16 @@ app.data.lootItem = function(name, chance, value, dropType, rarity, color){
 app.data.zombieLoot = [
   new app.data.lootItem("Scythe Blade",.000538,35000000,"secondaryDrop","crazyRare","#FFAA00"),
   new app.data.lootItem("Beheaded Horror",.001615,400000,"secondaryDrop","crazyRare","#AA00AA"),
-  new app.data.lootItem("&#11049 Snake Rune",.00323,500000,"runeDrop","crazyRare","rgb(0,0,0)"),
+  new app.data.lootItem("&#11049 Snake Rune",.00323,500000,"runeDrop","crazyRare","#55FF55"),
   new app.data.lootItem("Smite VI Book",.01,50000,"secondaryDrop","veryRare","#FFFFFF"),
   new app.data.lootItem("Revenant Catalyst",.01,100000,"secondaryDrop","veryRare","rgb(0,0,0)"),
   new app.data.lootItem("Undead Catalyst",.01,10000,"secondaryDrop","veryRare","rgb(0,0,0)"),
   new app.data.lootItem("&#11049 Pestilence Rune",.05,5000,"runeDrop","veryRare","rgb(0,0,0)"),
-  new app.data.lootItem("Foul Flesh",.2,25000,"secondaryDrop","rare","#000000"),
+  new app.data.lootItem("Foul Flesh",.2,25000,"secondaryDrop","rare","##5555FF"),
   new app.data.lootItem("Revenant Flesh",1,234,"mainDrop","common","#555555")];
 
 app.data.spiderLoot = [
-  new app.data.lootItem("Digested Mosquito",.000538,30000000,"secondaryDrop","crazyRare","rgb(0,0,0)"),
+  new app.data.lootItem("Digested Mosquito",.000538,30000000,"secondaryDrop","crazyRare","#FFAA00"),
   new app.data.lootItem("Tarantula Talisman",.001615,8000000,"secondaryDrop","crazyRare","#AA00AA"),
   new app.data.lootItem("Fly Swatter",.00323,200000,"secondaryDrop","crazyRare","#AA00AA"),
   new app.data.lootItem("Bane of Arthropods VI Book",.01,5000,"secondaryDrop","veryRare","#FFFFFF"),
@@ -85,7 +85,7 @@ app.data.boss = function(name){
 app.data.getDrop = function(table, dropType, rng){
   var candidates = [];
   for (var i = 0; i < table.length; i++) {
-    if(table[i].chance*(100+app.data.magicFind)/10000.0>rng){
+    if(table[i].chance>((rng/(100.0+app.data.magicFind))*100.0)){
       if(table[i].dropType==dropType){
         candidates.push(table[i]);
       }
@@ -94,7 +94,7 @@ app.data.getDrop = function(table, dropType, rng){
   if(candidates.length>=1){
     return(candidates[Math.floor(Math.random() * candidates.length)]);
   }else{
-    return(candidates[0])
+    return(undefined);
   }
 }
 

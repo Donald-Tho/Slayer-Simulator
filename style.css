@@ -1,13 +1,9 @@
 * {
   box-sizing: border-box;
-  font-family: 'Minecraftia';
+  font-family: 'MinecraftiaRegular';
   text-align: center;
 }
 
-@font-face {
-  font-family: 'Minecraftia';
-  src:url("/fonts/Minecraftia.ttf");
-}
 
 input{
   text-align: left;
