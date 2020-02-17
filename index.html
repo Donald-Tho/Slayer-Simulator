@@ -3,7 +3,6 @@
   <head>
     <title>Slayer Simulator v1</title>
     <link rel="stylesheet" type = "text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;display=swap" rel="stylesheet">
   </head>
   <h1>
     Blackbriarmead's Hypixel Skyblock Slayer Quest Simulator
@@ -14,7 +13,7 @@
         <p>Kills per click: </p>
       </div>
       <div class='child inline-block-child'>
-        <input type="text" id="userInput" value="1"/>
+        <input type="text" id="KPCInput" value="1"/>
       </div>
     </div>
     <div id="magicFind" class='parent'>
@@ -22,7 +21,7 @@
         <p>Magic Find: </p>
       </div>
       <div class='child inline-block-child'>
-        <input type="text" id="userInput" value="0"/>
+        <input type="text" id="magicFindInput" value="0"/>
       </div>
       <div class='child inline-block-child'>
         <p>%</p>
@@ -42,8 +41,8 @@
     <div id="lootSummary:">
 
     </div>
-    <div id="recentDrops">
-      
+    <div>
+      <ul id="recentDrops"></ul>
     </div>
   </body>
   <script

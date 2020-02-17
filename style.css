@@ -1,7 +1,12 @@
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Minecraftia';
   text-align: center;
+}
+
+@font-face {
+  font-family: 'Minecraftia';
+  src:url("/fonts/Minecraftia.ttf");
 }
 
 input{
@@ -20,9 +25,13 @@ h1{
 p{
   color: #F0F0F0;
 }
+p.parent{
+
+}
 
 ul{
   list-style-type: none;
+  list-style: none;
   border: 5;
   margin: 5;
 }
@@ -31,13 +40,17 @@ ul{
 }
 
 ul li{
+  display:table;
+  width:20%;
+  margin:auto;
+  text-align:center;
+  clear: none;
   background-color:#999999;
+  border-style: solid;
+  border-width: medium;
+  border-radius: 20px;
   user-select: none;
   padding: 12px 8px 12px 40px;
-}
-
-ul li:nth-child(odd) {
-  background: #BBBBBB;
 }
 
 .close{
